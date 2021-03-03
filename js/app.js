@@ -4,10 +4,22 @@ const cardImage = document.querySelector(".card-image");
 const countryCardContainer = document.querySelector(".country-cards");
 const mainDisplay = document.querySelector(".main-display");
 const detailSection = document.querySelector(".detail-section");
-const backButton = document.querySelector(".back-btn");
+
 const borderButtons = document.querySelector(".border-btn-container");
+const backButton = document.querySelector(".back-btn");
 const searchBar = document.querySelector(".search-input");
 const searchResult = document.querySelector(".search-result");
+
+const countryName = document.querySelector(".detail-country-name");
+      const nativeNameElem = document.querySelector(".native-name");
+      const populationElem = document.querySelector(".detail-population");
+      const regionElem = document.querySelector(".region");
+      const subRegionElem = document.querySelector(".sub-region");
+      const capitalElem = document.querySelector(".capital");
+      const domain = document.querySelector(".domain");
+      const currencyElem = document.querySelector(".currencies");
+      const languagesElem = document.querySelector(".languages");
+      const surfaceAreaElem = document.querySelector(".surface-area");
 
 function themeToggler() {
   let linkElem = document.getElementById("link-elem");
@@ -32,11 +44,9 @@ const fetchCountries = async () => {
 };
 
 const displayCountries = async () => {
-  // getting the data
   await fetchCountries();
 
   countries.forEach((country) => {
-      // creating the structure
       const card = document.createElement("div");
       card.classList.add("card");
 
@@ -56,23 +66,14 @@ const displayCountries = async () => {
       card.appendChild(cardText);
       cardText.innerHTML = `
       <h1>${country.name}</h1>
-      <p><span><b>Population: </b></span> ${country.population.toLocaleString(
+      <p><b>Population:</b> ${country.population.toLocaleString(
         "en-US"
       )}</p>
-      <p><span><b>Region: </b></span> ${country.region}</p>
-      <p><span><b>Capital: </b></span> ${country.capital}</p>
+      <p><b>Region: </b>${country.region}</p>
+      <p><b>Capital: </b> ${country.capital}</p>
     `;
 
-      const countryName = document.querySelector(".detail-country-name");
-      const nativeNameElem = document.querySelector(".native-name");
-      const populationElem = document.querySelector(".detail-population");
-      const regionElem = document.querySelector(".region");
-      const subRegionElem = document.querySelector(".sub-region");
-      const capitalElem = document.querySelector(".capital");
-      const domain = document.querySelector(".domain");
-      const currencyElem = document.querySelector(".currencies");
-      const languagesElem = document.querySelector(".languages");
-      const surfaceAreaElem = document.querySelector(".surface-area");
+      
 
       card.addEventListener("click", (e) => {
         detailSection.classList.remove("hide");
@@ -92,15 +93,15 @@ const displayCountries = async () => {
           "en-US"
         )}km²`;
 
-        country.languages.forEach((el, index, array) => {
-          const span = document.querySelector("span");
-          languagesElem.appendChild(span);
-          span.innerHTML = el.name;
+        country.languages.forEach((el) => {
+          const languageSpan = document.createElement("span");
+          languagesElem.appendChild(languageSpan);
+          languageSpan.innerHTML = el.name;
         });
 
         const borders = country.borders;
 
-        borders.forEach((el) => {
+       borders.forEach((el) => {
           const borderButtons = document.querySelector(".border-btn-container");
           const button = document.createElement("button");
           button.classList.add("border-btn");
@@ -109,7 +110,7 @@ const displayCountries = async () => {
 
           button.addEventListener('click', e => {
             alert('Light');
-          })
+          });
         });
       });
     });
@@ -118,7 +119,8 @@ const displayCountries = async () => {
 displayCountries();
 
 backButton.addEventListener("click", (e) => {
+  languagesElem.innerHTML = "";
+  borderButtons.innerHTML = "";
   mainDisplay.classList.remove("hide");
   detailSection.classList.add("hide");
-  location.reload();
 });
