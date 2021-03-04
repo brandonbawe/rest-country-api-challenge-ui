@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REST Countries</title>
     <link id="link-elem" rel="stylesheet" href="css/dark-theme.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
@@ -17,7 +21,7 @@
         </p>
       </nav>
     </header>
-    <section class="main-display">
+    <section class="main-display animate__animated animate__bounceInRight">
       <section class="input-boxes">
         <div class="input-container">
           <label for="search-input"
@@ -41,22 +45,19 @@
         </div>
       </section>
 
-      <main class="country-cards">
-       
-      </main>
-
+      <main class="country-cards"></main>
     </section>
 
-    <section class="detail-section hide">
-      <button class="btn back-btn"><ion-icon name="arrow-back-sharp"></ion-icon>Back</button>
+    <section
+      class="detail-section animate__animated animate__bounceInLeft hide"
+    >
+      <button class="btn back-btn">
+        <ion-icon name="arrow-back-sharp"></ion-icon>Back
+      </button>
 
       <div class="detail-items">
         <div class="detail-img-container">
-          <img
-            src=""
-            class="detail-img"
-            alt=""
-          />
+          <img src="" class="detail-img" alt="" />
         </div>
 
         <div class="detail-text">
@@ -71,9 +72,7 @@
                 <b>Population: </b>
                 <label class="detail-population"></label>
               </p>
-              <p>
-                <b>Region: </b> <label class="region"></label>
-              </p>
+              <p><b>Region: </b> <label class="region"></label></p>
               <p>
                 <b>Sub Region: </b>
                 <label class="sub-region"></label>
@@ -106,20 +105,87 @@
 
           <div class="border-countries-container">
             <h3>Border Countries:</h3>
-            <div class="border-btn-container">
-              
+            <div class="border-btn-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="border-details animate__animated animate__bounceInRight hide"
+    >
+      <button class="btn back-btn" id="border-back-button">
+        <ion-icon name="arrow-back-sharp"></ion-icon>Back
+      </button>
+      <div class="border-item detail-items">
+        <div class="detail-img-container">
+          <img src="" class="detail-img border-img" alt="" />
+        </div>
+
+        <div class="border-text detail-text">
+          <h1 class="border-country-name" style="margin-bottom: 1rem;"></h1>
+          <div class="country-details">
+            
+            <div>
+              <p>
+                <b>Native Name: </b>
+                <span class="border-NativeName"></span>
+              </p>
+              <p>
+                <b>Population: </b>
+                <span class="border-population"></span>
+              </p>
+              <p>
+                <b>Region:</b>
+                <span class="border-region"></span>
+              </p>
+              <p>
+                <b>Sub Region: </b>
+                <span class="border-sub-region"></span>
+              </p>
+              <p>
+                <b>Capital: </b>
+                <span class="border-capital"></span>
+              </p>
+            </div>
+            <div>
+              <p>
+                <b>Top Domain: </b>
+                <span class="border-domain"></span>
+              </p>
+              <p>
+                <b>Currencies: </b>
+                <span class="border-currencies"></span>
+              </p>
+              <p>
+                <b>Surface Area:</b>
+                <span class="border-area"></span>
+              </p>
+              <p>
+                <b>Language: </b>
+                <span class="border-language"></span>
+              </p>
+              <p>
+                <b>Capital: </b>
+                <span class="border-capital"></span>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="search-result hide">
-      
-    </section>
+    <button id="back-to-top-btn">
+      <ion-icon name="caret-up-outline"></ion-icon>
+    </button>
 
     <footer>
-        <p><small>copyright &copy; 2021 Made with ❤️ by <a href="https://www.brandonbawe.tech">Damue Brandon</a></small></p>
+      <p>
+        <small
+          >copyright &copy; 2021 Made with ❤️ by
+          <a href="https://www.brandonbawe.tech">Damue Brandon</a></small
+        >
+      </p>
     </footer>
 
     <script src="js/app.js"></script>

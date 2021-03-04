@@ -19,6 +19,10 @@
   --document-font-family: "Nunito Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--dark-mode-background);
   width: 100vw;
@@ -31,18 +35,6 @@ body {
 .main-display {
     width: 100%;
     opacity: 1;
-    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 header {
@@ -169,18 +161,6 @@ label ion-icon {
     width: 90%;
     padding-top: 2rem;
     margin: 0 auto;
-	 animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .btn,
@@ -205,8 +185,13 @@ label ion-icon {
     box-shadow: var(--box-shadows);
     font-family: var(--document-font-family);
 }
+
 .back-btn  ion-icon {
   padding-right: 0.4rem;
+}
+
+#border-back-button {
+  margin: 0 0 2rem 0;
 }
 
 .detail-items {
@@ -258,6 +243,14 @@ label ion-icon {
     justify-content: space-between;
     align-items: baseline;
 }
+/* =========== Border Detail Styles ================ */
+/* Border Details */
+
+.border-details {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0 0 0;
+}
 
 /* Search Result Styles */
 .search-result {
@@ -269,6 +262,56 @@ label ion-icon {
   justify-content: space-between;
   color: var(--light-mode-text);
 }
+
+/* Back to the top Button */
+#back-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: var(--dark-mode-background);
+    cursor: pointer;
+    outline: none;
+    border: 3px solid var(--dark-mode-elements-background);
+    border-radius: 50%;
+    transition: color .2s ease-in-out;
+}
+
+#back-to-top-btn:hover {
+    background-color: var(--dark-mode-elements-background);
+    color: #fff;
+}
+
+.btnEntrance {
+    animation-duration: 1s;
+    animation-fill-mode :both;
+    animation-name :btnEntrance;
+}
+
+@keyframes btnEntrance {
+    from{
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    to {
+        opacity: 1;
+    }
+} 
+
+@keyframes btnExit {
+    from{
+        opacity: 1;
+    }
+
+    to{
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+}  
 
 
 
