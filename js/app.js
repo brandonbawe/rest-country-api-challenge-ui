@@ -53,7 +53,7 @@ const displayCountries = async () => {
   countries.forEach((country) => {
     const card = document.createElement("div");
     card.classList.add("card");
-
+    
     const cardText = document.createElement("div");
     cardText.classList.add("card-text");
 

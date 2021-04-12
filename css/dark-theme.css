@@ -322,7 +322,9 @@ footer {
     text-align: center;
 }
 
-@media screen and (max-width: 375px) {
+@media only screen 
+  and (min-width: 280px) 
+  and (max-width: 540px)  {
   header nav {
     width: 90%;
     font-size: 10px;
